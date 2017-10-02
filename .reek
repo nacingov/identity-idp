@@ -3,6 +3,7 @@ Attribute:
 ControlParameter:
   exclude:
     - OpenidConnectRedirector#initialize
+    - NoRetryJobs#call
 DuplicateMethodCall:
   exclude:
     - ApplicationController#disable_caching
