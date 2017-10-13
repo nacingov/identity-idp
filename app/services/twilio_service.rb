@@ -9,8 +9,6 @@ class TwilioService
   def initialize
     @client = if FeatureManagement.telephony_disabled?
                 NullTwilioClient.new
-              elsif proxy_addr.present?
-                twilio_proxy_client
               else
                 twilio_client
               end
