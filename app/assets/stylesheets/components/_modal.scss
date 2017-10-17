@@ -106,8 +106,7 @@
   }
 }
 
-.modal-warning,
-.modal-jobfail {
+.modal-warning {
   &::before {
     background-image: url(image-path('alert/warning-lg.svg'));
   }

@@ -54,6 +54,11 @@ module Verify
       flash_heading + flash_body + attempts
     end
 
+    def modal_class_name
+      return 'modal-warning' if %w[warning jobfail].include?(error)
+      "modal-#{error}"
+    end
+
     private
 
     def timed_out?

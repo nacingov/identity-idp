@@ -1,8 +1,8 @@
 class NoRetryJobs
   def call(_worker, msg, queue)
-    return unless queue == 'idv'
     yield
   rescue StandardError => _e
+    return unless queue == 'idv'
     msg['retry'] = false
     raise
   end
