@@ -18,11 +18,10 @@ RSpec.describe NoRetryJobs do
     end
 
     context 'when the queue is not idv' do
-      it 'does not run' do
-        count = 0
-        NoRetryJobs.new.call(nil, {}, 'foo') { count += 1 }
-
-        expect(count).to eq 0
+      it 'does not set retry to false and raises StandardError' do
+        msg = {}
+        expect { NoRetryJobs.new.call(nil, msg, 'sms') { raise StandardError } }.
+          to change(msg, :keys).by([]).and raise_error(StandardError)
       end
     end
   end

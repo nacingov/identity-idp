@@ -5,7 +5,7 @@ feature 'IdV session' do
 
   context 'VendorValidatorJob raises an error', idv_job: true do
     it 'displays a warning that something went wrong' do
-      user = sign_in_and_2fa_user
+      sign_in_and_2fa_user
 
       step = instance_double(
         Idv::ProfileStep, attempts_exceeded?: false, vendor_validator_job_failed?: true
